@@ -8,7 +8,7 @@ Pretendemos concretar ***Una aplicación web con Tecnología JSP y Servlets, ade
 Y con ello lograr un 100 en nuestra materia de ingeniería en software, estamos de novatos. <sub>Sé gentil con nosotros:)</sub>
 ### Estamos comprometidos con el Desarrollo libre de software, por tanto permitimos la réplica absoluta de este proyecto para futuros usos 
 (Aunque siendo sinceros usamos mayoritariamente tecnologías antiguas, pero si te sirve, ***DATE***
-## Compartimos un par de Quotes que reflejan nuestras filosofías
+## Compartimos unas Quotes que reflejan nuestras filosofías
 >Mientras estés aprendiendo, no estás fallando
 
 ### Bob Ross
