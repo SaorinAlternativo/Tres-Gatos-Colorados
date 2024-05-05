@@ -1,5 +1,5 @@
 # Tres-Gatos-Colorados
-##Cometimos un error.
+## Cometimos un error.
 Así pues somos *como el titular lo ejemplifica* tres gatos, que para este caso se refiere a universitarios. ~~Colorados representa que somos de izquierdas~~
 Cargamos con mucho entusiasmo de meternos a la boca más de lo que podemos masticar. Y hasta ahora nos ha salido bien.
 
