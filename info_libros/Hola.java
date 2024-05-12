@@ -6,6 +6,10 @@ Connection con=cx.conectar();
         initComponents();
         Mostrar("");
     }
+    //Este es el evento KeyReleased de el textField Buscar donde se pondra el metodo
+    private void BuscarKeyReleased(java.awt.event.KeyEvent evt) {                                   
+        Mostrar(Buscar.getText());
+    } 
     
 public JTable Mostrar(String Nombre){
         try {
