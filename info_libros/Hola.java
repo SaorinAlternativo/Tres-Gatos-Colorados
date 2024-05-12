@@ -19,9 +19,9 @@ public JTable Mostrar(String Nombre){
             sql="SELECT * FROM libros";
             }
             else{
-                sql="Select * from libros where isbn like'%"+Nombre+"%' OR titulo like'%"+Nombre+"%' "
+                sql="Select * from libros where isbn like'%"+Nombre+"%' OR título like'%"+Nombre+"%' "
                         + "OR autor like'%"+Nombre+"%' OR cantidad like'%"+Nombre+"%' "
-                        + "OR precio like'%"+Nombre+"%' OR categoria like'%"+Nombre+"%' ";
+                        + "OR precio like'%"+Nombre+"%' OR género like'%"+Nombre+"%' ";
             }
             ResultSet rs= st.executeQuery(sql);
             ResultSetMetaData rsm=rs.getMetaData();
