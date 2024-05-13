@@ -4,13 +4,6 @@
  */
 package com.mycompany.libreria;
 
-import java.awt.Image;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,18 +11,12 @@ import javax.swing.JOptionPane;
  * @author lilia
  */
 public class Compras extends javax.swing.JFrame {
-    String nombreImagen="";
 
     /**
      * Creates new form Compras
      */
     public Compras() {
         initComponents();
-        llenarTabla();
-        this.setResizable(false);
-        this.setLocationRelativeTo(this);
-        this.setSize(800, 850);
-        
     }
 
     /**
@@ -43,21 +30,13 @@ public class Compras extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        cod = new javax.swing.JLabel();
+        Titulo = new javax.swing.JLabel();
         Precio = new javax.swing.JLabel();
         Cantidad = new javax.swing.JLabel();
         Cambio = new javax.swing.JLabel();
         btnConfirmar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-        fotoLibro = new javax.swing.JLabel();
-        Dinero = new javax.swing.JTextField();
-        nombrelibro = new javax.swing.JTextField();
-        precio = new javax.swing.JTextField();
-        cantidad = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablaLibros = new javax.swing.JTable();
-        Titulo = new javax.swing.JLabel();
-        ISBN = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,9 +47,9 @@ public class Compras extends javax.swing.JFrame {
         jLabel1.setText("Confirmación de compra");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 270, 40));
 
-        cod.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
-        cod.setText("ISBN:");
-        jPanel1.add(cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 60, 20));
+        Titulo.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        Titulo.setText("Título:");
+        jPanel1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 60, 20));
 
         Precio.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         Precio.setText("Precio:");
@@ -91,7 +70,7 @@ public class Compras extends javax.swing.JFrame {
                 btnConfirmarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 110, 40));
+        jPanel1.add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 110, 40));
 
         btnCancelar.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         btnCancelar.setText("Cancelar");
@@ -100,41 +79,10 @@ public class Compras extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, -1, 30));
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, -1, 30));
 
-        fotoLibro.setOpaque(true);
-        jPanel1.add(fotoLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, 200, 220));
-        jPanel1.add(Dinero, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 170, -1));
-        jPanel1.add(nombrelibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 120, -1));
-        jPanel1.add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 150, -1));
-        jPanel1.add(cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 130, -1));
-
-        tablaLibros.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        tablaLibros.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablaLibrosMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tablaLibros);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, -1, 190));
-
-        Titulo.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
-        Titulo.setText("Título:");
-        jPanel1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 60, 20));
-
-        ISBN.setBackground(new java.awt.Color(255, 153, 204));
-        jPanel1.add(ISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 210, -1));
+        jLabel4.setOpaque(true);
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, 200, 220));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -149,37 +97,9 @@ public class Compras extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void tablaLibrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaLibrosMouseClicked
-        ImageIcon img=null;
-        if(evt.getButton()==1) {
-            int fila=tablaLibros.getSelectedRow();
-            ISBN.setText(tablaLibros.getValueAt(fila,0).toString());
-            nombrelibro.setText(tablaLibros.getValueAt(fila, 1).toString());
-            precio.setText(tablaLibros.getValueAt(fila, 2).toString());
-            nombreImagen=tablaLibros.getValueAt(fila,3).toString();
-               
-            // Obtener imagen de la BD //
-            String isbn=ISBN.getText();
-            
-            try {
-                img = new Conexiones().obtenerImagen(isbn);
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null,"Error","Error",JOptionPane.ERROR_MESSAGE);
-            } catch (IOException ex) {
-                Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            Icon icono = new ImageIcon(img.getImage().getScaledInstance(fotoLibro.getHeight(), fotoLibro.getWidth(), Image.SCALE_DEFAULT));
-            if(img!=null) {
-                fotoLibro.setIcon(icono);
-                       
-        }
-    }
-    }//GEN-LAST:event_tablaLibrosMouseClicked
-
-    void llenarTabla() {
-        Conexiones tbl = new Conexiones();
-        tbl.mostrarTabla(tablaLibros);
-    }
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -215,20 +135,12 @@ public class Compras extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Cambio;
     private javax.swing.JLabel Cantidad;
-    private javax.swing.JTextField Dinero;
-    private javax.swing.JTextField ISBN;
     private javax.swing.JLabel Precio;
     private javax.swing.JLabel Titulo;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnConfirmar;
-    private javax.swing.JTextField cantidad;
-    private javax.swing.JLabel cod;
-    private javax.swing.JLabel fotoLibro;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField nombrelibro;
-    private javax.swing.JTextField precio;
-    private javax.swing.JTable tablaLibros;
     // End of variables declaration//GEN-END:variables
 }
