@@ -4,6 +4,7 @@
  */
 package com.mycompany.libreria;
 
+import java.awt.HeadlessException;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -29,11 +30,12 @@ public class Conexiones {
     BDConexion con;
     
     public void ActualizarRegistro (Libreria lib) {
-                String sql="UPDATE libros SET cantidad=? WHERE código=?";
+                String sql="UPDATE libros SET Cantidad=? WHERE isbn=?";
                  try {
                      con= new BDConexion();
                      PreparedStatement pst= con.Conectarse().prepareStatement(sql);
-                      pst.setInt(6, lib.getCantidad());
+                      pst.setInt(1, lib.getCantidad());
+                      pst.setString(2, lib.getIsbn());
                       int n=pst.executeUpdate();
                       if(n>0) {
                         JOptionPane.showMessageDialog(null, "Transacción realizada","Confirmación",JOptionPane.INFORMATION_MESSAGE);
@@ -44,10 +46,10 @@ public class Conexiones {
                  }
             }
     
-    public boolean SiExiste(int codigo) throws ClassNotFoundException, SQLException {
+    public boolean SiExiste(String título) throws ClassNotFoundException, SQLException {
             con = new BDConexion();
-            PreparedStatement ps = con.Conectarse().prepareStatement("Select 1 from libros where isbn= ?;");
-            ps.setInt(1, codigo);
+            PreparedStatement ps = con.Conectarse().prepareStatement("Select 1 from encargos where título= ?;");
+            ps.setString(1, título);
             ResultSet rs = ps.executeQuery();
             return rs.next();  
         }
@@ -80,7 +82,7 @@ public class Conexiones {
                     String sql;
                     con= new BDConexion();
                     sentenciaSQL=con.Conectarse().createStatement();
-                    sql="SELECT isbn, título, precio, imagen FROM libros";
+                    sql="SELECT isbn, título, precio, cantidad, imagen FROM libros";
                     ResultSet rs = sentenciaSQL.executeQuery(sql);
                     ResultSetMetaData rsm = rs.getMetaData();
                     int col = rsm.getColumnCount();
@@ -104,5 +106,24 @@ public class Conexiones {
                 }
                 return tablaLibros;
             }
+     
+      public void RegistroNuevo(Libreria lib) throws FileNotFoundException {
+        String insertar="INSERT INTO encargos (título,autor,género) VALUES(?,?,?)";
+        try {
+            con = new BDConexion();
+            PreparedStatement pst = con.Conectarse().prepareStatement(insertar);
+            pst.setString(1,lib.getTítulo());
+            pst.setString(2,lib.getAutor());
+            pst.setString(3,lib.getGénero());
+            int n=pst.executeUpdate();
+            if (n>0) {
+                JOptionPane.showMessageDialog(null, "Registro guardado","Confirmación",JOptionPane.INFORMATION_MESSAGE);
+            }
+            con.CerrarConexion();
+            
+        } catch (HeadlessException | ClassNotFoundException | SQLException e) {
+            
+        }
+    }
     
 }

@@ -24,15 +24,16 @@ public class ConexionesTest {
         Libreria lib = null;
         Conexiones instance = new Conexiones();
         instance.ActualizarRegistro(lib);
+        fail("The test case is a prototype.");
     }
 
     @Test
     public void testSiExiste() throws Exception {
         System.out.println("SiExiste");
-        int codigo = 0;
+        String título = "";
         Conexiones instance = new Conexiones();
         boolean expResult = false;
-        boolean result = instance.SiExiste(codigo);
+        boolean result = instance.SiExiste(título);
         assertEquals(expResult, result);
     }
 
@@ -44,6 +45,7 @@ public class ConexionesTest {
         ImageIcon expResult = null;
         ImageIcon result = instance.obtenerImagen(isbn);
         assertEquals(expResult, result);
+        fail("The test case is a prototype.");
     }
 
     @Test
@@ -54,6 +56,16 @@ public class ConexionesTest {
         JTable expResult = null;
         JTable result = instance.mostrarTabla(tablaLibros);
         assertEquals(expResult, result);
+        fail("The test case is a prototype.");
+    }
+
+    @Test
+    public void testRegistroNuevo() throws Exception {
+        System.out.println("RegistroNuevo");
+        Libreria lib = null;
+        Conexiones instance = new Conexiones();
+        instance.RegistroNuevo(lib);
+        fail("The test case is a prototype.");
     }
     
 }

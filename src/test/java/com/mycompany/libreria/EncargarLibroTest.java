@@ -11,16 +11,26 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author lilia
  */
-public class ComprasTest {
+public class EncargarLibroTest {
     
-    public ComprasTest() {
+    public EncargarLibroTest() {
     }
 
     @Test
-    public void testLlenarTabla() {
-        System.out.println("llenarTabla");
-        Compras instance = new Compras();
-        instance.llenarTabla();
+    public void testLimpiar() {
+        System.out.println("limpiar");
+        EncargarLibro instance = new EncargarLibro();
+        instance.limpiar();
+        
+    }
+
+    @Test
+    public void testVerificar() {
+        System.out.println("verificar");
+        EncargarLibro instance = new EncargarLibro();
+        boolean expResult = false;
+        boolean result = instance.verificar();
+        assertEquals(expResult, result);
         fail("The test case is a prototype.");
     }
 
@@ -28,25 +38,8 @@ public class ComprasTest {
     public void testMain() {
         System.out.println("main");
         String[] args = null;
-        Compras.main(args);
+        EncargarLibro.main(args);
         fail("The test case is a prototype.");
-    }
-
-    @Test
-    public void testLimpiar() {
-        System.out.println("limpiar");
-        Compras instance = new Compras();
-        instance.limpiar();
-        fail("The test case is a prototype.");
-    }
-
-    @Test
-    public void testVerificar() {
-        System.out.println("verificar");
-        Compras instance = new Compras();
-        boolean expResult = false;
-        boolean result = instance.verificar();
-        assertEquals(expResult, result);
     }
     
 }
