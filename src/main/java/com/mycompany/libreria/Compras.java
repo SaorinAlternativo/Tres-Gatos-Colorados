@@ -28,7 +28,7 @@ public class Compras extends javax.swing.JFrame {
         initComponents();
         llenarTabla();
         this.setResizable(true);
-        this.setSize(700,650);
+        this.setSize(720,650);
 
         
         
@@ -63,6 +63,7 @@ public class Compras extends javax.swing.JFrame {
         btnConfirmar = new javax.swing.JButton();
         cantidad = new javax.swing.JLabel();
         dineroIngresado = new javax.swing.JTextField();
+        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,11 +72,11 @@ public class Compras extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 36)); // NOI18N
         jLabel1.setText("Confirmación de compra");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 270, 40));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 270, 40));
 
         cod.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         cod.setText("ISBN:");
-        jPanel1.add(cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, 60, 20));
+        jPanel1.add(cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 60, 20));
 
         precio1.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         precio1.setText("Precio:");
@@ -108,7 +109,7 @@ public class Compras extends javax.swing.JFrame {
         jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, -1, 40));
 
         fotoLibro.setOpaque(true);
-        jPanel1.add(fotoLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, 200, 220));
+        jPanel1.add(fotoLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 200, 220));
 
         Cambio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,9 +145,7 @@ public class Compras extends javax.swing.JFrame {
         Titulo.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         Titulo.setText("Título:");
         jPanel1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 60, 20));
-
-        ISBN.setBackground(new java.awt.Color(255, 153, 204));
-        jPanel1.add(ISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 210, -1));
+        jPanel1.add(ISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, 210, -1));
 
         btnConfirmar.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         btnConfirmar.setText("Confirmar");
@@ -161,6 +160,9 @@ public class Compras extends javax.swing.JFrame {
         cantidad.setText("Cantidad:");
         jPanel1.add(cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
         jPanel1.add(dineroIngresado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 180, -1));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Libros.jpg"))); // NOI18N
+        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 730, 640));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -309,6 +311,7 @@ public class Compras extends javax.swing.JFrame {
     private javax.swing.JLabel cod;
     private javax.swing.JLabel dinero;
     private javax.swing.JTextField dineroIngresado;
+    private javax.swing.JLabel fondo;
     private javax.swing.JLabel fotoLibro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

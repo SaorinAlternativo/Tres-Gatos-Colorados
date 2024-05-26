@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -125,5 +126,35 @@ public class Conexiones {
             
         }
     }
+      
+      public void PreOrdenar (Libreria lib) throws FileNotFoundException {
+        String insertar="INSERT INTO preventas (Número_de_cliente,Nombre_del_cliente,título,autor,género,Fecha_de_salida) VALUES(?,?,?,?,?,?)";
+        try {
+            con = new BDConexion();
+            PreparedStatement pst = con.Conectarse().prepareStatement(insertar);
+            pst.setString(1,lib.getNúmero_de_cliente());
+            pst.setString(2,lib.getNombre_del_cliente());
+            pst.setString(3,lib.getTítulo());
+            pst.setString(4,lib.getAutor());
+            pst.setString(5,lib.getGénero());
+            pst.setString(6,lib.getFecha_de_salida());
+            int n=pst.executeUpdate();
+            if (n>0) {
+                JOptionPane.showMessageDialog(null, "Registro guardado","Confirmación",JOptionPane.INFORMATION_MESSAGE);
+            }
+            con.CerrarConexion();
+            
+        } catch (HeadlessException | ClassNotFoundException | SQLException e) {
+            
+        }
+    }
+      public boolean ExisteOrden(String Número_de_cliente) throws ClassNotFoundException, SQLException {
+            con = new BDConexion();
+            PreparedStatement ps = con.Conectarse().prepareStatement("Select 1 from preventas where Número_de_cliente= ?;");
+            ps.setString(1,Número_de_cliente);
+            ResultSet rs = ps.executeQuery();
+            return rs.next();  
+        }
+      
     
 }

@@ -4,7 +4,18 @@
  */
 package com.mycompany.libreria;
 
+import java.io.FileNotFoundException;
+import static java.lang.String.format;
+import java.sql.SQLException;
+import static java.text.MessageFormat.format;
 import java.text.SimpleDateFormat;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import java.util.Date;
+import javax.swing.JTextField;
 
 /**
  *
@@ -12,12 +23,18 @@ import java.text.SimpleDateFormat;
  */
 public class PreOrdenar extends javax.swing.JFrame {
 
+    
+
     /**
      * Creates new form PreOrdenar
      */
     public PreOrdenar() {
         initComponents();
         jCalendar.setVisible(false);
+        this.setResizable(false);
+        this.setLocationRelativeTo(this);
+        this.setSize(920, 500);
+        
     }
 
     /**
@@ -35,16 +52,17 @@ public class PreOrdenar extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        autorLibro = new javax.swing.JTextField();
+        géneroLibro = new javax.swing.JTextField();
+        numCliente = new javax.swing.JTextField();
         títuloLibro = new javax.swing.JTextField();
-        títuloLibro1 = new javax.swing.JTextField();
-        títuloLibro2 = new javax.swing.JTextField();
-        títuloLibro3 = new javax.swing.JTextField();
         btnHecho = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         fechaSalida = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        títuloLibro5 = new javax.swing.JTextField();
+        nombreCliente = new javax.swing.JTextField();
         jCalendar = new com.toedter.calendar.JCalendar();
+        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,34 +70,39 @@ public class PreOrdenar extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Titulo.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 48)); // NOI18N
+        Titulo.setForeground(new java.awt.Color(255, 255, 255));
         Titulo.setText("Pre-ordenar");
         jPanel1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 200, -1));
 
         jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Número de cliente:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, 40));
 
         jLabel4.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Autor/a del libro:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 200, 40));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Fecha en la que sale:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 160, 40));
 
         jLabel5.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Género:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 150, 40));
-        jPanel1.add(títuloLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 310, -1));
+        jPanel1.add(autorLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 310, -1));
 
-        títuloLibro1.addMouseListener(new java.awt.event.MouseAdapter() {
+        géneroLibro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                títuloLibro1MouseClicked(evt);
+                géneroLibroMouseClicked(evt);
             }
         });
-        jPanel1.add(títuloLibro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 310, -1));
-        jPanel1.add(títuloLibro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 310, -1));
-        jPanel1.add(títuloLibro3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 310, -1));
+        jPanel1.add(géneroLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 310, -1));
+        jPanel1.add(numCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 310, -1));
+        jPanel1.add(títuloLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 310, -1));
 
         btnHecho.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         btnHecho.setText("Confirmar");
@@ -91,6 +114,7 @@ public class PreOrdenar extends javax.swing.JFrame {
         jPanel1.add(btnHecho, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, 120, 40));
 
         jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Nombre del libro:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 200, 40));
 
@@ -99,19 +123,23 @@ public class PreOrdenar extends javax.swing.JFrame {
                 fechaSalidaMouseClicked(evt);
             }
         });
-        jPanel1.add(fechaSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 310, -1));
+        jPanel1.add(fechaSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 310, -1));
 
         jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Nombre del cliente:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 200, 40));
-        jPanel1.add(títuloLibro5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 310, -1));
+        jPanel1.add(nombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 310, -1));
 
         jCalendar.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jCalendarPropertyChange(evt);
             }
         });
-        jPanel1.add(jCalendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, -1, -1));
+        jPanel1.add(jCalendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, -1, -1));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/libreríaMadrid2.jpg"))); // NOI18N
+        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 530));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -119,35 +147,38 @@ public class PreOrdenar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHechoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHechoActionPerformed
-//        boolean b = false;
-//        if(verificar()) {
-//            try {
-//                b = new Conexiones().SiExiste(títuloLibro.getText());
-//            } catch (ClassNotFoundException | SQLException ex) {
-//                Logger.getLogger(EncargarLibro.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            if (b) {
-//                JOptionPane.showMessageDialog(null,"Ese libro ya está encargado","Error",JOptionPane.INFORMATION_MESSAGE);
-//            }
-//            else {
-//                Libreria lib = new Libreria();
-//                lib.setTítulo(títuloLibro.getText());
-//                lib.setAutor(autorLibro.getText());
-//                lib.setGénero(géneroLibro.getText());
-//
-//                try {
-//                    new Conexiones().RegistroNuevo(lib);
-//                } catch (FileNotFoundException ex) {
-//                    Logger.getLogger(EncargarLibro.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//                limpiar();
-//            }
-//        }
+        boolean b = false;
+        if(verificar()) {
+            try {
+                b = new Conexiones().ExisteOrden(numCliente.getText());
+            } catch (ClassNotFoundException | SQLException ex) {
+                Logger.getLogger(PreOrdenar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if (b) {
+                JOptionPane.showMessageDialog(null,"Ese libro ya está preordenado","Error",JOptionPane.INFORMATION_MESSAGE);
+            }
+            else {
+                Libreria lib = new Libreria();
+                lib.setTítulo(títuloLibro.getText());
+                lib.setAutor(autorLibro.getText());
+                lib.setGénero(géneroLibro.getText());
+                lib.setNombre_del_cliente(nombreCliente.getText());
+                lib.setNúmero_de_cliente(numCliente.getText());
+                lib.setFecha_de_salida(fechaSalida.getText());                             
+
+                try {
+                    new Conexiones().PreOrdenar(lib);
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(PreOrdenar.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                limpiar();
+            }
+        }
     }//GEN-LAST:event_btnHechoActionPerformed
 
-    private void títuloLibro1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_títuloLibro1MouseClicked
+    private void géneroLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_géneroLibroMouseClicked
        
-    }//GEN-LAST:event_títuloLibro1MouseClicked
+    }//GEN-LAST:event_géneroLibroMouseClicked
 
     private void fechaSalidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fechaSalidaMouseClicked
         jCalendar.setVisible(true);
@@ -160,10 +191,25 @@ public class PreOrdenar extends javax.swing.JFrame {
                     
         }
     }//GEN-LAST:event_jCalendarPropertyChange
-
-    /**
-     * @param args the command line arguments
-     */
+      void limpiar () {
+        autorLibro.setText("");
+        autorLibro.setText("");
+        géneroLibro.setText("");
+        fechaSalida.setText("");
+        nombreCliente.setText("");
+        numCliente.setText("");
+    }
+    
+    boolean verificar() {
+        if(autorLibro.getText().isEmpty() || autorLibro.getText().isEmpty()
+                || géneroLibro.getText().isEmpty() || fechaSalida.getText().isEmpty() || nombreCliente.getText().isEmpty()
+                || numCliente.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null,"Debes llenar todos los datos","Error",JOptionPane.WARNING_MESSAGE);
+            return false;
+        } else 
+            
+            return true; 
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -198,8 +244,11 @@ public class PreOrdenar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Titulo;
+    private javax.swing.JTextField autorLibro;
     private javax.swing.JButton btnHecho;
     private javax.swing.JTextField fechaSalida;
+    private javax.swing.JLabel fondo;
+    private javax.swing.JTextField géneroLibro;
     private com.toedter.calendar.JCalendar jCalendar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -208,10 +257,8 @@ public class PreOrdenar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField nombreCliente;
+    private javax.swing.JTextField numCliente;
     private javax.swing.JTextField títuloLibro;
-    private javax.swing.JTextField títuloLibro1;
-    private javax.swing.JTextField títuloLibro2;
-    private javax.swing.JTextField títuloLibro3;
-    private javax.swing.JTextField títuloLibro5;
     // End of variables declaration//GEN-END:variables
 }
