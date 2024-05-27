@@ -1,6 +1,15 @@
 package logica;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class libro {
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private int id;
     private String titulo;
     private Double isbn;
     private String autor;
@@ -11,7 +20,8 @@ public class libro {
     public libro() {
     }
 
-    public libro(String titulo, Double isbn, String autor, int precio, String genero, int cantidad) {
+    public libro(int id, String titulo, Double isbn, String autor, int precio, String genero, int cantidad) {
+        this.id = id;
         this.titulo = titulo;
         this.isbn = isbn;
         this.autor = autor;
@@ -19,6 +29,17 @@ public class libro {
         this.genero = genero;
         this.cantidad = cantidad;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+
+    
 
     public String getTitulo() {
         return titulo;
