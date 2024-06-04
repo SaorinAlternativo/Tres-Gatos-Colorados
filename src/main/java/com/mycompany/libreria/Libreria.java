@@ -19,6 +19,15 @@ private String imagen;
 private String Nombre_del_cliente;
 private String Número_de_cliente;
 private String Fecha_de_salida;
+private int CantidadEnExistencia;
+
+    public int getCantidadEnExistencia() {
+        return CantidadEnExistencia;
+    }
+
+    public void setCantidadEnExistencia(int CantidadEnExistencia) {
+        this.CantidadEnExistencia = CantidadEnExistencia;
+    }
 
     public String getFecha_de_salida() {
         return Fecha_de_salida;
@@ -49,7 +58,7 @@ private String Fecha_de_salida;
  
 
 
-    public Libreria(String título, String isbn, String autor, float precio, String género, int Cantidad, String imagen, String Número_de_cliente, 
+    public Libreria(String título, String isbn, String autor, float precio, String género, int Cantidad, int CantidadEnExistencia, String imagen, String Número_de_cliente, 
             String Nombre_del_cliente, String Fecha_de_salida) {
         this.título = título;
         this.isbn = isbn;
@@ -57,6 +66,7 @@ private String Fecha_de_salida;
         this.precio = precio;
         this.género = género;
         this.Cantidad = Cantidad;
+        this.CantidadEnExistencia = CantidadEnExistencia;
         this.imagen = imagen;
         this.Número_de_cliente = Número_de_cliente;
         this.Nombre_del_cliente = Nombre_del_cliente;

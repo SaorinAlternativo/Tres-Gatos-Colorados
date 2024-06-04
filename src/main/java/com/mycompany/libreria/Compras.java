@@ -5,21 +5,27 @@
 package com.mycompany.libreria;
 
 import java.awt.Image;
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
  * @author lilia
  */
 public class Compras extends javax.swing.JFrame {
-    String nombreImagen="";
+//    String nombreImagen="";
+//    ImageIcon  Imagen[]=new ImageIcon[39];
+//    int contador=1;
+    
 
     /**
      * Creates new form Compras
@@ -29,9 +35,14 @@ public class Compras extends javax.swing.JFrame {
         llenarTabla();
         this.setResizable(true);
         this.setSize(720,650);
-
-        
-        
+        this.setLocationRelativeTo(this);
+        unidadesDisponibles.setEnabled(false);
+        this.setDefaultCloseOperation(2);
+//        this.setTitle("Libros");
+//        for (int i=1; i<38; i++) {
+//            Imagen[i]= new ImageIcon(getClass().getResource("/src/main/resources/imagenes/ProyectoHailMary.jpg"));
+//            fotoLibro.setIcon(Imagen[i]);
+//        }           
     }
 
     /**
@@ -50,7 +61,6 @@ public class Compras extends javax.swing.JFrame {
         dinero = new javax.swing.JLabel();
         cambio = new javax.swing.JLabel();
         btnTotal = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
         fotoLibro = new javax.swing.JLabel();
         Cambio = new javax.swing.JTextField();
         nombrelibro = new javax.swing.JTextField();
@@ -58,11 +68,15 @@ public class Compras extends javax.swing.JFrame {
         Cantidad = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaLibros = new javax.swing.JTable();
-        Titulo = new javax.swing.JLabel();
         ISBN = new javax.swing.JTextField();
         btnConfirmar = new javax.swing.JButton();
         cantidad = new javax.swing.JLabel();
         dineroIngresado = new javax.swing.JTextField();
+        Unidades = new javax.swing.JLabel();
+        Titulo2 = new javax.swing.JLabel();
+        unidadesDisponibles = new javax.swing.JTextField();
+        btnCancelar = new javax.swing.JButton();
+        btnCargar = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -99,17 +113,8 @@ public class Compras extends javax.swing.JFrame {
         });
         jPanel1.add(btnTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 100, 40));
 
-        btnCancelar.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
-        btnCancelar.setText("Cancelar");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, -1, 40));
-
         fotoLibro.setOpaque(true);
-        jPanel1.add(fotoLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 200, 220));
+        jPanel1.add(fotoLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 200, 220));
 
         Cambio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,11 +145,7 @@ public class Compras extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaLibros);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 590, 270));
-
-        Titulo.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
-        Titulo.setText("Título:");
-        jPanel1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 60, 20));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 590, 270));
         jPanel1.add(ISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, 210, -1));
 
         btnConfirmar.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
@@ -161,8 +162,35 @@ public class Compras extends javax.swing.JFrame {
         jPanel1.add(cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
         jPanel1.add(dineroIngresado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 180, -1));
 
+        Unidades.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        Unidades.setText("Unidades disponibles: ");
+        jPanel1.add(Unidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 170, 20));
+
+        Titulo2.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        Titulo2.setText("Título:");
+        jPanel1.add(Titulo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 60, 20));
+        jPanel1.add(unidadesDisponibles, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 40, 90, -1));
+
+        btnCancelar.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, -1, 40));
+
+        btnCargar.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        btnCargar.setText("Cargar");
+        btnCargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCargarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, -1, 40));
+
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Libros.jpg"))); // NOI18N
-        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 0, 730, 640));
+        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 650));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -171,55 +199,65 @@ public class Compras extends javax.swing.JFrame {
 
     private void btnTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTotalActionPerformed
         double total, precioLibro, dineroIng;
-        int cant;
+        int cant, cantExistencia, cantRestante;
         precioLibro=Double.parseDouble(Precio.getText());
         cant=Integer.parseInt(Cantidad.getText());
+        cantExistencia=Integer.parseInt(unidadesDisponibles.getText());
+                if (cantExistencia<=0) {
+          JOptionPane.showMessageDialog(null,"El libro no está disponible","Error",JOptionPane.WARNING_MESSAGE);
+          btnConfirmar.setEnabled(false);
+        }
                 if (cant<=0) {
         JOptionPane.showMessageDialog(null,"No puedes tener menos de un libro","Error",JOptionPane.WARNING_MESSAGE); 
                 }
                 else {            
         dineroIng=Double.parseDouble(dineroIngresado.getText());
-        if (dineroIng>=precioLibro) {
+        if (dineroIng>=(precioLibro*cant)) {
         total=dineroIng-(precioLibro*cant);
         Cambio.setText(String.valueOf(total));
+        cantRestante=cantExistencia-cant;
+        if (cantRestante<=0) {
+          JOptionPane.showMessageDialog(null,"Ya no hay suficientes libros","Error",JOptionPane.WARNING_MESSAGE);
+           btnConfirmar.setEnabled(false);
+        }
+        else {
+        unidadesDisponibles.setText(String.valueOf(cantRestante));
+        }
         }
         else {
          JOptionPane.showMessageDialog(null,"No puedes ingresar una cantidad menor al precio del libro","Error",JOptionPane.WARNING_MESSAGE); 
                 }
-        
                 }
+                       
     }//GEN-LAST:event_btnTotalActionPerformed
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnCancelarActionPerformed
-
     private void tablaLibrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaLibrosMouseClicked
-        ImageIcon img=null;
+//        ImageIcon img=null;
         if(evt.getButton()==1) {
             int fila=tablaLibros.getSelectedRow();
             ISBN.setText(tablaLibros.getValueAt(fila,0).toString());
             nombrelibro.setText(tablaLibros.getValueAt(fila, 1).toString());
             Precio.setText(tablaLibros.getValueAt(fila, 2).toString());
             Cantidad.setText(tablaLibros.getValueAt(fila,3).toString());
-            nombreImagen=tablaLibros.getValueAt(fila,4).toString();
+            unidadesDisponibles.setText(tablaLibros.getValueAt(fila,4).toString());
+//            nombreImagen=tablaLibros.getValueAt(fila,5).toString(); 
 //            tablaLibros.removeColumn(tablaLibros.getColumnModel().getColumn(4));
                
-            // Obtener imagen de la BD //
-            String isbn=ISBN.getText();
-            
-            try {
-                img = new Conexiones().obtenerImagen(isbn);
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null,"Error","Error",JOptionPane.ERROR_MESSAGE);
-            } catch (IOException ex) {
-                Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            Icon icono = new ImageIcon(img.getImage().getScaledInstance(fotoLibro.getHeight(), fotoLibro.getWidth(), Image.SCALE_DEFAULT));
-            if(img!=null) {
-                fotoLibro.setIcon(icono);
-                       
-        }
+             //Obtener imagen de la BD //
+//            String isbn=ISBN.getText();
+//            
+//            try {
+//                img = new Conexiones().obtenerImagen(isbn);
+//            } catch (SQLException ex) {
+//                JOptionPane.showMessageDialog(null,"Error","Error",JOptionPane.ERROR_MESSAGE);
+//            } catch (IOException ex) {
+//                Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//            Icon icono = new ImageIcon(img.getImage().getScaledInstance(fotoLibro.getHeight(), fotoLibro.getWidth(), Image.SCALE_DEFAULT));
+//            if(img!=null) {
+//                fotoLibro.setIcon(icono);
+//                       
+//        }
     }
     }//GEN-LAST:event_tablaLibrosMouseClicked
 
@@ -232,12 +270,34 @@ public class Compras extends javax.swing.JFrame {
        if (verificar()) {
         Libreria lib = new Libreria();
             lib.setCantidad(Integer.parseInt(Cantidad.getText()));
+            lib.setCantidadEnExistencia(Integer.parseInt(unidadesDisponibles.getText()));
             lib.setIsbn(ISBN.getText());
             new Conexiones().ActualizarRegistro(lib);
             limpiar();
             llenarTabla();
      }
     }//GEN-LAST:event_btnConfirmarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("JPG & GIF Images","jpg","gif");
+        JFileChooser FC = new JFileChooser();
+        FC.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        FC.setDialogTitle("Abrir archivo");
+        File ruta = new File("C:\\Users\\lilia\\OneDrive\\Documentos\\Tecnológico\\Sexto semestre\\Libreria\\src\\main\\resources\\imagenes");
+        FC.setCurrentDirectory(ruta);
+        int resultado= FC.showOpenDialog(this);
+        if (resultado!= JFileChooser.CANCEL_OPTION) {
+            File nombreArchivo = FC.getSelectedFile();
+            String nombreImagen = String.valueOf(nombreArchivo);
+            Image foto = getToolkit().getImage(nombreImagen);
+            foto=foto.getScaledInstance(fotoLibro.getWidth(), fotoLibro.getHeight(), Image.SCALE_DEFAULT);
+            fotoLibro.setIcon(new ImageIcon(foto));
+        }
+    }//GEN-LAST:event_btnCargarActionPerformed
 
     void llenarTabla() {
         Conexiones tbl = new Conexiones();
@@ -256,8 +316,8 @@ public class Compras extends javax.swing.JFrame {
     
     boolean verificar() {
         if(nombrelibro.getText().isEmpty() || Precio.getText().isEmpty()
-                || Cantidad.getText().isEmpty() || Cambio.getText().isEmpty() ||
-                fotoLibro.getIcon()==null) {
+                || Cantidad.getText().isEmpty() || Cambio.getText().isEmpty()) //|| fotoLibro.getIcon()==null)
+                {
             JOptionPane.showMessageDialog(null,"Debes llenar todos los datos","Error",JOptionPane.WARNING_MESSAGE);
             return false;
         } else 
@@ -302,8 +362,10 @@ public class Compras extends javax.swing.JFrame {
     private javax.swing.JTextField Cantidad;
     private javax.swing.JTextField ISBN;
     private javax.swing.JTextField Precio;
-    private javax.swing.JLabel Titulo;
+    private javax.swing.JLabel Titulo2;
+    private javax.swing.JLabel Unidades;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnCargar;
     private javax.swing.JButton btnConfirmar;
     private javax.swing.JButton btnTotal;
     private javax.swing.JLabel cambio;
@@ -312,12 +374,13 @@ public class Compras extends javax.swing.JFrame {
     private javax.swing.JLabel dinero;
     private javax.swing.JTextField dineroIngresado;
     private javax.swing.JLabel fondo;
-    private javax.swing.JLabel fotoLibro;
+    public static javax.swing.JLabel fotoLibro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nombrelibro;
     private javax.swing.JLabel precio1;
     private javax.swing.JTable tablaLibros;
+    private javax.swing.JTextField unidadesDisponibles;
     // End of variables declaration//GEN-END:variables
 }

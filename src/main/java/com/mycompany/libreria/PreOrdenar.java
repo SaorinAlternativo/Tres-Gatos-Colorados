@@ -5,17 +5,12 @@
 package com.mycompany.libreria;
 
 import java.io.FileNotFoundException;
-import static java.lang.String.format;
 import java.sql.SQLException;
-import static java.text.MessageFormat.format;
 import java.text.SimpleDateFormat;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import java.util.Date;
-import javax.swing.JTextField;
+
 
 /**
  *
@@ -48,13 +43,10 @@ public class PreOrdenar extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Titulo = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         autorLibro = new javax.swing.JTextField();
-        géneroLibro = new javax.swing.JTextField();
-        numCliente = new javax.swing.JTextField();
         títuloLibro = new javax.swing.JTextField();
         btnHecho = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -62,6 +54,8 @@ public class PreOrdenar extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         nombreCliente = new javax.swing.JTextField();
         jCalendar = new com.toedter.calendar.JCalendar();
+        jcomboGénero = new javax.swing.JComboBox<>();
+        btnRevisar = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,11 +67,6 @@ public class PreOrdenar extends javax.swing.JFrame {
         Titulo.setForeground(new java.awt.Color(255, 255, 255));
         Titulo.setText("Pre-ordenar");
         jPanel1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 200, -1));
-
-        jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Número de cliente:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, 40));
 
         jLabel4.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -93,16 +82,8 @@ public class PreOrdenar extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Género:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 150, 40));
-        jPanel1.add(autorLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 310, -1));
-
-        géneroLibro.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                géneroLibroMouseClicked(evt);
-            }
-        });
-        jPanel1.add(géneroLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 310, -1));
-        jPanel1.add(numCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 310, -1));
-        jPanel1.add(títuloLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 310, -1));
+        jPanel1.add(autorLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 270, -1));
+        jPanel1.add(títuloLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 270, -1));
 
         btnHecho.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         btnHecho.setText("Confirmar");
@@ -111,7 +92,7 @@ public class PreOrdenar extends javax.swing.JFrame {
                 btnHechoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnHecho, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, 120, 40));
+        jPanel1.add(btnHecho, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 120, 40));
 
         jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -123,13 +104,13 @@ public class PreOrdenar extends javax.swing.JFrame {
                 fechaSalidaMouseClicked(evt);
             }
         });
-        jPanel1.add(fechaSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 310, -1));
+        jPanel1.add(fechaSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 150, -1));
 
         jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Nombre del cliente:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 200, 40));
-        jPanel1.add(nombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 310, -1));
+        jPanel1.add(nombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 270, -1));
 
         jCalendar.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -138,8 +119,21 @@ public class PreOrdenar extends javax.swing.JFrame {
         });
         jPanel1.add(jCalendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, -1, -1));
 
+        jcomboGénero.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 14)); // NOI18N
+        jcomboGénero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona:", "Fantasía", "Ciencia ficción", "Clásico", "Romance", "Misterio" }));
+        jPanel1.add(jcomboGénero, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, -1, -1));
+
+        btnRevisar.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        btnRevisar.setText("Revisar registros");
+        btnRevisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRevisarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnRevisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, 160, 40));
+
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/libreríaMadrid2.jpg"))); // NOI18N
-        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 530));
+        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 520));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -150,20 +144,19 @@ public class PreOrdenar extends javax.swing.JFrame {
         boolean b = false;
         if(verificar()) {
             try {
-                b = new Conexiones().ExisteOrden(numCliente.getText());
+                b = new Conexiones().ExisteOrden(nombreCliente.getText());
             } catch (ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(PreOrdenar.class.getName()).log(Level.SEVERE, null, ex);
             }
             if (b) {
-                JOptionPane.showMessageDialog(null,"Ese libro ya está preordenado","Error",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null,"Ya has preordenado algo anteriormente. Uno a la vez","Error",JOptionPane.INFORMATION_MESSAGE);
             }
             else {
                 Libreria lib = new Libreria();
                 lib.setTítulo(títuloLibro.getText());
                 lib.setAutor(autorLibro.getText());
-                lib.setGénero(géneroLibro.getText());
+                lib.setGénero(jcomboGénero.getSelectedItem().toString());
                 lib.setNombre_del_cliente(nombreCliente.getText());
-                lib.setNúmero_de_cliente(numCliente.getText());
                 lib.setFecha_de_salida(fechaSalida.getText());                             
 
                 try {
@@ -176,10 +169,6 @@ public class PreOrdenar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnHechoActionPerformed
 
-    private void géneroLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_géneroLibroMouseClicked
-       
-    }//GEN-LAST:event_géneroLibroMouseClicked
-
     private void fechaSalidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fechaSalidaMouseClicked
         jCalendar.setVisible(true);
     }//GEN-LAST:event_fechaSalidaMouseClicked
@@ -191,19 +180,22 @@ public class PreOrdenar extends javax.swing.JFrame {
                     
         }
     }//GEN-LAST:event_jCalendarPropertyChange
+
+    private void btnRevisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRevisarActionPerformed
+        Registros reg = new Registros();
+        reg.setVisible(true);
+    }//GEN-LAST:event_btnRevisarActionPerformed
       void limpiar () {
         autorLibro.setText("");
         autorLibro.setText("");
-        géneroLibro.setText("");
+        jcomboGénero.setSelectedIndex(0);
         fechaSalida.setText("");
         nombreCliente.setText("");
-        numCliente.setText("");
     }
     
     boolean verificar() {
         if(autorLibro.getText().isEmpty() || autorLibro.getText().isEmpty()
-                || géneroLibro.getText().isEmpty() || fechaSalida.getText().isEmpty() || nombreCliente.getText().isEmpty()
-                || numCliente.getText().isEmpty()) {
+                || jcomboGénero.getSelectedIndex()<1 || fechaSalida.getText().isEmpty() || nombreCliente.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,"Debes llenar todos los datos","Error",JOptionPane.WARNING_MESSAGE);
             return false;
         } else 
@@ -246,19 +238,18 @@ public class PreOrdenar extends javax.swing.JFrame {
     private javax.swing.JLabel Titulo;
     private javax.swing.JTextField autorLibro;
     private javax.swing.JButton btnHecho;
+    private javax.swing.JButton btnRevisar;
     private javax.swing.JTextField fechaSalida;
     private javax.swing.JLabel fondo;
-    private javax.swing.JTextField géneroLibro;
     private com.toedter.calendar.JCalendar jCalendar;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> jcomboGénero;
     private javax.swing.JTextField nombreCliente;
-    private javax.swing.JTextField numCliente;
     private javax.swing.JTextField títuloLibro;
     // End of variables declaration//GEN-END:variables
 }

@@ -31,12 +31,14 @@ public class Conexiones {
     BDConexion con;
     
     public void ActualizarRegistro (Libreria lib) {
-                String sql="UPDATE libros SET Cantidad=? WHERE isbn=?";
+                String sql="UPDATE libros SET Cantidad=?, CantidadEnExistencia=? WHERE isbn=?";
                  try {
                      con= new BDConexion();
                      PreparedStatement pst= con.Conectarse().prepareStatement(sql);
                       pst.setInt(1, lib.getCantidad());
-                      pst.setString(2, lib.getIsbn());
+                      pst.setInt(2, lib.getCantidadEnExistencia());
+                      pst.setString(3, lib.getIsbn());
+                      
                       int n=pst.executeUpdate();
                       if(n>0) {
                         JOptionPane.showMessageDialog(null, "Transacción realizada","Confirmación",JOptionPane.INFORMATION_MESSAGE);
@@ -83,7 +85,9 @@ public class Conexiones {
                     String sql;
                     con= new BDConexion();
                     sentenciaSQL=con.Conectarse().createStatement();
-                    sql="SELECT isbn, título, precio, cantidad, imagen FROM libros";
+                    sql="SELECT isbn, título, precio, cantidad, CantidadEnExistencia FROM libros";
+                    //Original: sql="SELECT isbn, título, precio, cantidad, imagen FROM libros";
+                    
                     ResultSet rs = sentenciaSQL.executeQuery(sql);
                     ResultSetMetaData rsm = rs.getMetaData();
                     int col = rsm.getColumnCount();
@@ -128,16 +132,15 @@ public class Conexiones {
     }
       
       public void PreOrdenar (Libreria lib) throws FileNotFoundException {
-        String insertar="INSERT INTO preventas (Número_de_cliente,Nombre_del_cliente,título,autor,género,Fecha_de_salida) VALUES(?,?,?,?,?,?)";
+        String insertar="INSERT INTO preventas (Nombre_del_cliente,título,autor,género,Fecha_de_salida) VALUES(?,?,?,?,?)";
         try {
             con = new BDConexion();
             PreparedStatement pst = con.Conectarse().prepareStatement(insertar);
-            pst.setString(1,lib.getNúmero_de_cliente());
-            pst.setString(2,lib.getNombre_del_cliente());
-            pst.setString(3,lib.getTítulo());
-            pst.setString(4,lib.getAutor());
-            pst.setString(5,lib.getGénero());
-            pst.setString(6,lib.getFecha_de_salida());
+            pst.setString(1,lib.getNombre_del_cliente());
+            pst.setString(2,lib.getTítulo());
+            pst.setString(3,lib.getAutor());
+            pst.setString(4,lib.getGénero());
+            pst.setString(5,lib.getFecha_de_salida());
             int n=pst.executeUpdate();
             if (n>0) {
                 JOptionPane.showMessageDialog(null, "Registro guardado","Confirmación",JOptionPane.INFORMATION_MESSAGE);
@@ -148,13 +151,15 @@ public class Conexiones {
             
         }
     }
-      public boolean ExisteOrden(String Número_de_cliente) throws ClassNotFoundException, SQLException {
+      public boolean ExisteOrden(String Nombre_del_cliente) throws ClassNotFoundException, SQLException {
             con = new BDConexion();
-            PreparedStatement ps = con.Conectarse().prepareStatement("Select 1 from preventas where Número_de_cliente= ?;");
-            ps.setString(1,Número_de_cliente);
+            PreparedStatement ps = con.Conectarse().prepareStatement("Select 1 from preventas where Nombre_del_cliente= ?;");
+            ps.setString(1,Nombre_del_cliente);
             ResultSet rs = ps.executeQuery();
             return rs.next();  
         }
+      
+           
       
     
 }

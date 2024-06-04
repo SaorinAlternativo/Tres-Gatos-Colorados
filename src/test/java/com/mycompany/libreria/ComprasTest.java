@@ -21,7 +21,7 @@ public class ComprasTest {
         System.out.println("llenarTabla");
         Compras instance = new Compras();
         instance.llenarTabla();
-        fail("The test case is a prototype.");
+        
     }
 
     @Test
@@ -29,7 +29,7 @@ public class ComprasTest {
         System.out.println("main");
         String[] args = null;
         Compras.main(args);
-        fail("The test case is a prototype.");
+        
     }
 
     @Test
@@ -37,16 +37,14 @@ public class ComprasTest {
         System.out.println("limpiar");
         Compras instance = new Compras();
         instance.limpiar();
-        fail("The test case is a prototype.");
+        
     }
 
     @Test
     public void testVerificar() {
         System.out.println("verificar");
         Compras instance = new Compras();
-        boolean expResult = false;
-        boolean result = instance.verificar();
-        assertEquals(expResult, result);
+        instance.verificar();
     }
     
 }

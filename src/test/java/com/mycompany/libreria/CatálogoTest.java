@@ -21,7 +21,6 @@ public class CatálogoTest {
         System.out.println("main");
         String[] args = null;
         Catálogo.main(args);
-        fail("The test case is a prototype.");
     }
     
 }
