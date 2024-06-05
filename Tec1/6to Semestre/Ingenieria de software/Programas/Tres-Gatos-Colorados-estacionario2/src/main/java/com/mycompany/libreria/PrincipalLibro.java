@@ -24,7 +24,7 @@ public class PrincipalLibro extends javax.swing.JFrame {
     private boolean mouseInside3 = false;
     private boolean mouseInside4 = false;
     private boolean mouseInside5 = false;
-    
+    AjustarImg ajustar = new AjustarImg();
 Compras com = new Compras();   
 Catálogo cat = new Catálogo(); 
 EncargarLibro Enlib = new EncargarLibro();
@@ -35,22 +35,13 @@ Devoluciones dev = new Devoluciones();
         initComponents();
         jTextArea1.setVisible(false);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-       ImageIcon ImageDecoracion1 = ImageResizer.resizeImage("src\\main\\java\\source/login.png", jLabel7.getWidth(), jLabel7.getHeight());
-       jLabel7.setIcon(ImageDecoracion1);
-       ImageIcon ImageDecoracion2 = ImageResizer.resizeImage("src\\main\\java\\source/hexagono.png", jLabel10.getWidth(), jLabel10.getHeight());
-       jLabel10.setIcon(ImageDecoracion2);
-       ImageResizer.resizeImage("src\\main\\java\\source/hexagono.png", jLabel11.getWidth(), jLabel11.getHeight());
-       jLabel11.setIcon(ImageDecoracion2);
-       ImageResizer.resizeImage("src\\main\\java\\source/hexagono.png", jLabel13.getWidth(), jLabel13.getHeight());
-       jLabel13.setIcon(ImageDecoracion2);
-       ImageResizer.resizeImage("src\\main\\java\\source/hexagono.png", jLabel15.getWidth(), jLabel15.getHeight());
-       jLabel15.setIcon(ImageDecoracion2);
-       ImageResizer.resizeImage("src\\main\\java\\source/hexagono.png", jLabel12.getWidth(), jLabel12.getHeight());
-       jLabel12.setIcon(ImageDecoracion2);
-       ImageResizer.resizeImage("src\\main\\java\\source/hexagono.png", jLabel17.getWidth(), jLabel17.getHeight());
-       jLabel17.setIcon(ImageDecoracion2);
-       ImageResizer.resizeImage("src\\main\\java\\source/hexagono.png", jLabel10.getWidth(), jLabel10.getHeight());
-       jLabel10.setIcon(ImageDecoracion2);
+       ajustar.AjustarImagen(jLabel7, "source", "login.png");
+       ajustar.AjustarImagen(jLabel10, "source", "hexagono.png");
+      ajustar.AjustarImagen(jLabel11, "source", "hexagono.png");
+       ajustar.AjustarImagen(jLabel13, "source", "hexagono.png");
+      ajustar.AjustarImagen(jLabel15, "source", "hexagono.png");
+      ajustar.AjustarImagen(jLabel12, "source", "hexagono.png");
+       ajustar.AjustarImagen(jLabel17, "source", "hexagono.png");
        
     }
     class jpanelGra extends JPanel {
@@ -596,63 +587,51 @@ Devoluciones dev = new Devoluciones();
     }//GEN-LAST:event_jButton8MouseExited
 
     private void Comprar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Comprar1MouseEntered
-        ImageIcon ImageDecoracion = ImageResizer.resizeImage("src\\main\\java\\source/hexagono1.png", jLabel11.getWidth(), jLabel11.getHeight());
-       jLabel11.setIcon(ImageDecoracion);
+      ajustar.AjustarImagen(jLabel11, "source", "hexagono1.png");
     }//GEN-LAST:event_Comprar1MouseEntered
 
     private void Comprar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Comprar1MouseExited
-        ImageIcon ImageDecoracion = ImageResizer.resizeImage("src\\main\\java\\source/hexagono.png", jLabel11.getWidth(), jLabel11.getHeight());
-       jLabel11.setIcon(ImageDecoracion);
+       ajustar.AjustarImagen(jLabel11, "source", "hexagono.png");
     }//GEN-LAST:event_Comprar1MouseExited
 
     private void CatálogoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CatálogoMouseEntered
-        ImageIcon ImageDecoracion = ImageResizer.resizeImage("src\\main\\java\\source/hexagono1.png", jLabel12.getWidth(), jLabel12.getHeight());
-       jLabel12.setIcon(ImageDecoracion);
+       ajustar.AjustarImagen(jLabel12, "source", "hexagono1.png");
     }//GEN-LAST:event_CatálogoMouseEntered
 
     private void CatálogoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CatálogoMouseExited
-        ImageIcon ImageDecoracion = ImageResizer.resizeImage("src\\main\\java\\source/hexagono.png", jLabel12.getWidth(), jLabel12.getHeight());
-       jLabel12.setIcon(ImageDecoracion);
+       ajustar.AjustarImagen(jLabel12, "source", "hexagono.png");
     }//GEN-LAST:event_CatálogoMouseExited
 
     private void EncargarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EncargarMouseEntered
-        ImageIcon ImageDecoracion = ImageResizer.resizeImage("src\\main\\java\\source/hexagono1.png", jLabel15.getWidth(), jLabel15.getHeight());
-       jLabel15.setIcon(ImageDecoracion);
+       ajustar.AjustarImagen(jLabel15, "source", "hexagono1.png");
     }//GEN-LAST:event_EncargarMouseEntered
 
     private void EncargarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EncargarMouseExited
-        ImageIcon ImageDecoracion = ImageResizer.resizeImage("src\\main\\java\\source/hexagono.png", jLabel15.getWidth(), jLabel15.getHeight());
-       jLabel15.setIcon(ImageDecoracion);
+       ajustar.AjustarImagen(jLabel15, "source", "hexagono.png");
     }//GEN-LAST:event_EncargarMouseExited
 
     private void DevolucionesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DevolucionesMouseEntered
-        ImageIcon ImageDecoracion = ImageResizer.resizeImage("src\\main\\java\\source/hexagono1.png", jLabel17.getWidth(), jLabel17.getHeight());
-       jLabel17.setIcon(ImageDecoracion);
+        ajustar.AjustarImagen(jLabel17, "source", "hexagono1.png");
     }//GEN-LAST:event_DevolucionesMouseEntered
 
     private void DevolucionesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DevolucionesMouseExited
-         ImageIcon ImageDecoracion = ImageResizer.resizeImage("src\\main\\java\\source/hexagono.png", jLabel17.getWidth(), jLabel17.getHeight());
-       jLabel17.setIcon(ImageDecoracion);
+        ajustar.AjustarImagen(jLabel17, "source", "hexagono.png");
     }//GEN-LAST:event_DevolucionesMouseExited
 
     private void PreOrdenarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PreOrdenarMouseEntered
-        ImageIcon ImageDecoracion = ImageResizer.resizeImage("src\\main\\java\\source/hexagono1.png", jLabel13.getWidth(), jLabel13.getHeight());
-       jLabel13.setIcon(ImageDecoracion);
+        ajustar.AjustarImagen(jLabel13, "source", "hexagono1.png");
     }//GEN-LAST:event_PreOrdenarMouseEntered
 
     private void PreOrdenarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PreOrdenarMouseExited
-        ImageIcon ImageDecoracion = ImageResizer.resizeImage("src\\main\\java\\source/hexagono.png", jLabel13.getWidth(), jLabel13.getHeight());
-       jLabel13.setIcon(ImageDecoracion);
+        ajustar.AjustarImagen(jLabel13, "source", "hexagono.png");
     }//GEN-LAST:event_PreOrdenarMouseExited
 
     private void HelpMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HelpMouseEntered
-        ImageIcon ImageDecoracion = ImageResizer.resizeImage("src\\main\\java\\source/hexagono1.png", jLabel10.getWidth(), jLabel10.getHeight());
-       jLabel10.setIcon(ImageDecoracion);
+       ajustar.AjustarImagen(jLabel10, "source", "hexagono1.png");
     }//GEN-LAST:event_HelpMouseEntered
 
     private void HelpMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HelpMouseExited
-        ImageIcon ImageDecoracion = ImageResizer.resizeImage("src\\main\\java\\source/hexagono.png", jLabel10.getWidth(), jLabel10.getHeight());
-       jLabel10.setIcon(ImageDecoracion);
+        ajustar.AjustarImagen(jLabel10, "source", "hexagono.png");
     }//GEN-LAST:event_HelpMouseExited
 
     private void Comprar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Comprar1MouseClicked

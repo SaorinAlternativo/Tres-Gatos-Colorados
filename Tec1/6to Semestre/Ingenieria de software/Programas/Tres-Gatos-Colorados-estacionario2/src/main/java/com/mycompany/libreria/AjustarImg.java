@@ -13,6 +13,7 @@ import javax.swing.JLabel;
  *
  * @author lilia
  */
+ 
 public class AjustarImg {
         public void AjustarImagen(JLabel etiqueta, String ruta, String nombre) {
         ImageIcon img= new ImageIcon(getClass().getResource("/"+ruta+"/"+nombre));

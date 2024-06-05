@@ -17,17 +17,15 @@ import javax.swing.JOptionPane;
  */
 public class Devoluciones extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Devoluciones
-     */
+    AjustarImg ajustar = new AjustarImg();
+     
     public Devoluciones() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.setResizable(false);
         this.setLocationRelativeTo(this);
         this.setSize(680, 480);
-        ImageIcon ImageDecoracion1 = ImageResizer.resizeImage("src\\main\\java\\source/libros.jpg", jLabel1.getWidth(), jLabel1.getHeight());
-       jLabel1.setIcon(ImageDecoracion1);
+        ajustar.AjustarImagen(jLabel1, "source", "libros.jpg");
     }
     
 boolean verificar() {
