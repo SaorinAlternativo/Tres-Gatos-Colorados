@@ -21,15 +21,48 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
 /**
  *
- * @author lilia
+ * @author davgi
  */
 public class Conexiones {
-    private Statement sentenciaSQL;
+     private Statement sentenciaSQL;
     BDConexion con;
     
+    public JTable BuscarLibro(String Nombre, JTable Tabla){
+        try {
+            String sql;
+            Statement st=con.createStatement();
+            if(Nombre.equals("")){
+            sql="SELECT * FROM libros";
+            }
+            else{
+                sql="Select * from libros where isbn like'%"+Nombre+"%' OR título like'%"+Nombre+"%' "
+                        + "OR autor like'%"+Nombre+"%' OR cantidad like'%"+Nombre+"%' "
+                        + "OR precio like'%"+Nombre+"%' OR género like'%"+Nombre+"%' ";
+            }
+            ResultSet rs= st.executeQuery(sql);
+            ResultSetMetaData rsm=rs.getMetaData();
+            int col=rsm.getColumnCount();
+            DefaultTableModel modelo = new DefaultTableModel();{
+        }
+            for(int i=1;i<=col;i++){
+                modelo.addColumn(rsm.getColumnLabel(i));
+            }
+            while(rs.next()){
+                String[] fila = new String[col];
+                for(int j=0;j<col;j++){
+                    fila[j]=rs.getString(j+1);
+                }
+                modelo.addRow(fila);
+            }
+            Tabla.setModel(modelo);
+            rs.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Error...", "Error",JOptionPane.INFORMATION_MESSAGE);
+        }
+        return Tabla;
+    }
     public void ActualizarRegistro (Libreria lib) {
                 String sql="UPDATE libros SET Cantidad=? WHERE isbn=?";
                  try {
