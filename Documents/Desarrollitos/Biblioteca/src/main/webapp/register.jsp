@@ -23,6 +23,16 @@
                         <h2>Registro</h2> 
                         <div class = "input-contenedor">
                             <i class="fas fa-regular fa-envelope"></i>
+                            <input type="text" required>
+                            <label for="#">Nombre</label>
+                        </div>
+                        <div class = "input-contenedor">
+                            <i class="fas fa-regular fa-envelope"></i>
+                            <input type="text" required>
+                            <label for="#">Apellidos</label>
+                        </div>
+                        <div class = "input-contenedor">
+                            <i class="fas fa-regular fa-envelope"></i>
                             <input type="email" required>
                             <label for="#">Email</label>
                         </div>
@@ -37,14 +47,21 @@
                             <input type="password" required>
                             <label for="#">Repite la Contraseña</label>
                         </div>
+                        <div class = "contenedor-chiquito">
+                            <i class="fa-solid fa-lock"></i>
+                            <select name="select" class="redondito">
+                            <option value="value1">Cuenta?</option>
+                            <option value="value2" selected>Cliente</option>
+                            <option value="value3">Escritor</option>
+                            </select>
+                        </div>
                         
-                        
+                        <div>
+                        <button href="index.jsp">Acceder</button>
+                         </div>
                     </form>
                     
-                    <div>
-                        <button href="index.jsp">Acceder</button>
-
-                    </div>
+                    
                 </div>
             </div>
         </section>

@@ -10,6 +10,8 @@ public class Escritor{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int idEscritor;
+    private String nombre;
+    private String apellidos;
     private String correo;
     private String contrasenia;
     @OneToOne
@@ -18,8 +20,10 @@ public class Escritor{
     public Escritor() {
     }
 
-    public Escritor(int idEscritor, String correo, String contrasenia, Curriculum curriculum) {
+    public Escritor(int idEscritor,String nombre, String apellidos ,String correo, String contrasenia, Curriculum curriculum) {
         this.idEscritor = idEscritor;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
         this.correo = correo;
         this.contrasenia = contrasenia;
         this.curriculum = curriculum;
@@ -32,6 +36,23 @@ public class Escritor{
     public void setIdEscritor(int idEscritor) {
         this.idEscritor = idEscritor;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+    
 
     public String getCorreo() {
         return correo;
@@ -59,4 +80,3 @@ public class Escritor{
     
     
 }
-

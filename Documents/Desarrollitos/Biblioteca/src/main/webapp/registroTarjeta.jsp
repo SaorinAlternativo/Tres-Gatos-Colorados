@@ -19,36 +19,37 @@
         <section>
             <div class="contenedor">
                 <div class="formulario">
-                    <form action="#">
+                    <form action="SvTarjeta" method="post">
                         <h2>Registro Tarjeta</h2> 
                         <div class = "input-contenedor">
-                            <i class="fas fa-regular fa-envelope"></i>
-                            <input type="email" required>
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="text" required name="numCard">
                             <label for="#">Número Tarjeta</label>
                         </div>
                         
                         <div class = "input-contenedor">
                             <i class="fa-solid fa-lock"></i>
-                            <input type="password" required>
+                            <input type="text" required name="nameCard">
                             <label for="#">Nombre del Titular</label>
                         </div>
                         <div class = "input-contenedor">
                             <i class="fa-solid fa-lock"></i>
-                            <input type="password" required>
+                            <input type="text" required name="date">
                             <label for="#">Fecha Vencimiento</label>
                         </div>
                         <div class = "input-contenedor">
                             <i class="fa-solid fa-lock"></i>
-                            <input type="password" required>
+                            <input type="text" required name="cvv">
                             <label for="#">CVV</label>
+                        </div>
+                        
+                        <div>
+                        <button type="submit">Nueva Tarjeta</button>
                         </div>
                                                 
                     </form>
                     
-                    <div>
-                        <button href="index.jsp">Nueva Tarjeta</button>
-
-                    </div>
+                    
                 </div>
             </div>
         </section>

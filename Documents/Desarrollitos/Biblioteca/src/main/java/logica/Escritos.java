@@ -16,7 +16,7 @@ public class Escritos implements Serializable {
    private String estado;
    
    @ManyToOne
-   @JoinColumn(name="id_escrito")
+   @JoinColumn(name="id_curriculum")
    private Curriculum write;
 
     public Escritos() {

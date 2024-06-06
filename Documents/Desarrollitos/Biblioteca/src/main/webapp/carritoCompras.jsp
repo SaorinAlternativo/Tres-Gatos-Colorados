@@ -1,7 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
-    <head>
+<head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -37,7 +36,7 @@
             </div>
 </nav>
 
-    <body>
+<body>
  <div id="wrapper">
   <h1>Sortable Table of Search Queries</h1>
   
@@ -98,4 +97,5 @@
   </table>
  </div> 
 </body>
+<%@include file="components/foot.jsp"%>
 </html>

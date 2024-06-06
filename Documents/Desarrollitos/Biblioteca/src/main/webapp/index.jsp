@@ -28,10 +28,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Registrarse como Escritor</a></li>
-                        <li class="nav-item"><a class="nav-link" href="register.jsp">Registrarse como cliente</a></li>
+                        <li class="nav-item"><a class="nav-link" href="register.jsp">Registrarse</a></li>
                         <li class="nav-item"><a class="nav-link" href="login.jsp">Iniciar Sesión</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">Iniciar sesión escritor</a></li>
                     </ul>
                 </div>
             </div>

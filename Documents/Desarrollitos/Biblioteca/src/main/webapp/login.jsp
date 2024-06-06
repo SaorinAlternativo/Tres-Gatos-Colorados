@@ -47,7 +47,7 @@
                         
                         <div class="registrar"></div>
                         <p> No tengo cuenta <a href="register.jsp">Crear una</a></p>
-                    </div>
+                        </div>
                 </div>
             </div>
         </section>

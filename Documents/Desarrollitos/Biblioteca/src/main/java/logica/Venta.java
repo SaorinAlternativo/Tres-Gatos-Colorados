@@ -14,12 +14,12 @@ public class Venta implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int idVenta;
-    @OneToMany (mappedBy="id_venta")                                                                                                                                                                                                                                                                                                                                                        
+    @OneToMany (mappedBy="book")                                                                                                                                                                                                                                                                                                                                                        
     private List<Libro> listaLibros;  
     private int cantidad;
     private Double monto;
     @ManyToOne
-    @JoinColumn(name="id_Venta")
+    @JoinColumn(name="id_cliente")
     private Cliente Sell;
 
     public Venta() {

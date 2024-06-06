@@ -17,7 +17,7 @@ public class Libro {
     private String genero;
     private Double precio;
     @ManyToOne
-    @JoinColumn(name="idbook")
+    @JoinColumn(name="id_venta")
     private Venta book;
 
     public Libro() {

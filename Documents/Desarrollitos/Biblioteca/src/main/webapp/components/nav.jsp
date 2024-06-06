@@ -10,10 +10,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#services">Comprar</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Encargar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="CatalogoLibros.jsp">Comprar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="encargar.jsp">Encargar</a></li>
                         <li class="nav-item"><a class="nav-link" href="registroTarjeta.jsp">Tarjeta</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login.jsp">Carrito</a></li>
+                        <li class="nav-item"><a class="nav-link" href="carritoCompras.jsp">Carrito</a></li>
                         <li class="nav-item"><a class="nav-link" href="login.jsp">Salir</a></li>
                     </ul>
                 </div>

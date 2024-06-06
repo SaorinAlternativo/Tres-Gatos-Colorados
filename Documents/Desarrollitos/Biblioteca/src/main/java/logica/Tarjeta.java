@@ -11,7 +11,7 @@ public class Tarjeta implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int idTarjeta;
-    private int NumTarjeta;
+    private String NumTarjeta;
     private String NombreTarjeta;
     private String FechaVencimiento;
     private String CVV;
@@ -19,7 +19,7 @@ public class Tarjeta implements Serializable {
     public Tarjeta() {
     }
 
-    public Tarjeta(int idTarjeta, int NumTarjeta, String NombreTarjeta, String FechaVencimiento, String CVV) {
+    public Tarjeta(int idTarjeta, String NumTarjeta, String NombreTarjeta, String FechaVencimiento, String CVV) {
         this.idTarjeta = idTarjeta;
         this.NumTarjeta = NumTarjeta;
         this.NombreTarjeta = NombreTarjeta;
@@ -35,13 +35,15 @@ public class Tarjeta implements Serializable {
         this.idTarjeta = idTarjeta;
     }
 
-    public int getNumTarjeta() {
+    public String getNumTarjeta() {
         return NumTarjeta;
     }
 
-    public void setNumTarjeta(int NumTarjeta) {
+    public void setNumTarjeta(String NumTarjeta) {
         this.NumTarjeta = NumTarjeta;
     }
+
+    
 
     public String getNombreTarjeta() {
         return NombreTarjeta;

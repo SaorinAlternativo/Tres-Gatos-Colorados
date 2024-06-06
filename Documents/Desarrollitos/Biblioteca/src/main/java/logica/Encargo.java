@@ -14,7 +14,7 @@ public class Encargo{
     private String fechaEncargo;
     private boolean estreno;
     @ManyToOne
-    @JoinColumn(name="id_encargo")
+    @JoinColumn(name="id_cliente")
     private Cliente Fleet;
 
     public Encargo() {

@@ -2,11 +2,30 @@ package persistencia;
 
 import logica.Tarjeta;
 
+
+
 public class controladoraPersistencia {
     
     ClienteJpaController clienteJPA = new ClienteJpaController();
+    CurriculumJpaController curriculumJPA = new CurriculumJpaController();
+    EncargoJpaController encargoJPA = new EncargoJpaController();
+    EscritorJpaController escritorJPA = new EscritorJpaController();
+    EscritosJpaController escritoJPA = new EscritosJpaController();
+    LibroJpaController libroJPA = new LibroJpaController();
+    TarjetaJpaController tarjetaJPA = new TarjetaJpaController();
+    VentaJpaController ventaJPA = new VentaJpaController();
+
+    public controladoraPersistencia() {
+    }
+    
+    
 
     public void crearTarjeta(Tarjeta card) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        tarjetaJPA.create(card);
     }
+    
+    
+    
+
+
 }
