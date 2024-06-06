@@ -6,6 +6,7 @@ package com.mycompany.libreria;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -36,6 +37,14 @@ public class BDConexion {
         if(sentenciaSQL != null) sentenciaSQL.close();
         if(conexion != null) conexion.close();
         
+    }
+
+    Statement createStatement() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    PreparedStatement prepareStatement(String sql) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

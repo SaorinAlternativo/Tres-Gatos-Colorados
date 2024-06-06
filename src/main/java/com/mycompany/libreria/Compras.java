@@ -6,8 +6,11 @@ package com.mycompany.libreria;
 
 import java.awt.Image;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
@@ -26,6 +29,7 @@ public class Compras extends javax.swing.JFrame {
 //    ImageIcon  Imagen[]=new ImageIcon[39];
 //    int contador=1;
     
+    
 
     /**
      * Creates new form Compras
@@ -33,17 +37,15 @@ public class Compras extends javax.swing.JFrame {
     public Compras() {
         initComponents();
         llenarTabla();
-        this.setResizable(true);
-        this.setSize(720,650);
+        this.setResizable(false);
+        this.setSize(725,690);
         this.setLocationRelativeTo(this);
         unidadesDisponibles.setEnabled(false);
-        this.setDefaultCloseOperation(2);
-//        this.setTitle("Libros");
-//        for (int i=1; i<38; i++) {
-//            Imagen[i]= new ImageIcon(getClass().getResource("/src/main/resources/imagenes/ProyectoHailMary.jpg"));
-//            fotoLibro.setIcon(Imagen[i]);
-//        }           
+        this.setDefaultCloseOperation(2);  
+        
     }
+    
+     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,6 +56,7 @@ public class Compras extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        fondo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         cod = new javax.swing.JLabel();
@@ -77,9 +80,15 @@ public class Compras extends javax.swing.JFrame {
         unidadesDisponibles = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
         btnCargar = new javax.swing.JButton();
-        fondo = new javax.swing.JLabel();
+        Buscar = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        fondo1 = new javax.swing.JLabel();
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Libros.jpg"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -189,8 +198,31 @@ public class Compras extends javax.swing.JFrame {
         });
         jPanel1.add(btnCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, -1, 40));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Libros.jpg"))); // NOI18N
-        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 650));
+        Buscar.setText("Buscar libro");
+        Buscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                BuscarKeyReleased(evt);
+            }
+        });
+        jPanel1.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 190, -1));
+
+        jPanel2.setBackground(new java.awt.Color(255, 51, 51));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setFont(new java.awt.Font("Script MT Bold", 1, 12)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("X");
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 40, 30));
+
+        fondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Libros.jpg"))); // NOI18N
+        jPanel1.add(fondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 700));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -232,32 +264,13 @@ public class Compras extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTotalActionPerformed
 
     private void tablaLibrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaLibrosMouseClicked
-//        ImageIcon img=null;
-        if(evt.getButton()==1) {
+       if(evt.getButton()==1) {
             int fila=tablaLibros.getSelectedRow();
             ISBN.setText(tablaLibros.getValueAt(fila,0).toString());
             nombrelibro.setText(tablaLibros.getValueAt(fila, 1).toString());
             Precio.setText(tablaLibros.getValueAt(fila, 2).toString());
             Cantidad.setText(tablaLibros.getValueAt(fila,3).toString());
             unidadesDisponibles.setText(tablaLibros.getValueAt(fila,4).toString());
-//            nombreImagen=tablaLibros.getValueAt(fila,5).toString(); 
-//            tablaLibros.removeColumn(tablaLibros.getColumnModel().getColumn(4));
-               
-             //Obtener imagen de la BD //
-//            String isbn=ISBN.getText();
-//            
-//            try {
-//                img = new Conexiones().obtenerImagen(isbn);
-//            } catch (SQLException ex) {
-//                JOptionPane.showMessageDialog(null,"Error","Error",JOptionPane.ERROR_MESSAGE);
-//            } catch (IOException ex) {
-//                Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            Icon icono = new ImageIcon(img.getImage().getScaledInstance(fotoLibro.getHeight(), fotoLibro.getWidth(), Image.SCALE_DEFAULT));
-//            if(img!=null) {
-//                fotoLibro.setIcon(icono);
-//                       
-//        }
     }
     }//GEN-LAST:event_tablaLibrosMouseClicked
 
@@ -267,15 +280,9 @@ public class Compras extends javax.swing.JFrame {
     }//GEN-LAST:event_CambioActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-       if (verificar()) {
-        Libreria lib = new Libreria();
-            lib.setCantidad(Integer.parseInt(Cantidad.getText()));
-            lib.setCantidadEnExistencia(Integer.parseInt(unidadesDisponibles.getText()));
-            lib.setIsbn(ISBN.getText());
-            new Conexiones().ActualizarRegistro(lib);
-            limpiar();
-            llenarTabla();
-     }
+            guardarCompra();
+            guardarVenta();
+        
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -299,6 +306,15 @@ public class Compras extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCargarActionPerformed
 
+    private void BuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BuscarKeyReleased
+        Conexiones con = new Conexiones();
+        con.BuscarLibro(Buscar.getText(),tablaLibros);
+    }//GEN-LAST:event_BuscarKeyReleased
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        this.dispose();
+    }//GEN-LAST:event_jLabel6MouseClicked
+
     void llenarTabla() {
         Conexiones tbl = new Conexiones();
         tbl.mostrarTabla(tablaLibros);
@@ -310,9 +326,35 @@ public class Compras extends javax.swing.JFrame {
          Cantidad.setText("");
          Cambio.setText("");
          fotoLibro.setIcon(null);
-             
-    
+         dineroIngresado.setText("");             
     }
+        void guardarCompra () {
+            if (verificar()) {        
+               Libreria lib = new Libreria();
+               lib.setCantidad(Integer.parseInt(Cantidad.getText()));
+               lib.setCantidadEnExistencia(Integer.parseInt(unidadesDisponibles.getText()));
+               lib.setIsbn(ISBN.getText()); 
+               new Conexiones().ActualizarRegistro(lib);
+               llenarTabla();
+     }
+        } 
+        
+        void guardarVenta () {
+            if (verificar()) {        
+               Libreria lib = new Libreria();
+               lib.setIsbn(ISBN.getText());
+               lib.setTítulo(nombrelibro.getText());
+               lib.setPrecio(Float.parseFloat(Precio.getText()));
+               lib.setCantidad(Integer.parseInt(Cantidad.getText()));
+                try {
+                    new Conexiones().RegistroVenta(lib);
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
+                }
+               limpiar();
+               llenarTabla();
+     }
+        }
     
     boolean verificar() {
         if(nombrelibro.getText().isEmpty() || Precio.getText().isEmpty()
@@ -358,6 +400,7 @@ public class Compras extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Buscar;
     private javax.swing.JTextField Cambio;
     private javax.swing.JTextField Cantidad;
     private javax.swing.JTextField ISBN;
@@ -374,9 +417,12 @@ public class Compras extends javax.swing.JFrame {
     private javax.swing.JLabel dinero;
     private javax.swing.JTextField dineroIngresado;
     private javax.swing.JLabel fondo;
+    private javax.swing.JLabel fondo1;
     public static javax.swing.JLabel fotoLibro;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nombrelibro;
     private javax.swing.JLabel precio1;

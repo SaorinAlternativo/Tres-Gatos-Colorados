@@ -12,6 +12,7 @@ package com.mycompany.libreria;
 public class Catálogo extends javax.swing.JFrame {
     AjustarImg ajustar = new AjustarImg();
     Compras comprar;
+    
 
 
     public Catálogo() {
@@ -62,8 +63,8 @@ public class Catálogo extends javax.swing.JFrame {
        ajustar.AjustarImagen(ElFantasma, "imagenes", "ElFantasma.jpg");
        ajustar.AjustarImagen(ElGranGatsby, "imagenes","ElGranGatsby.jpg");
        
-
-        
+       this.setDefaultCloseOperation(2); 
+       
     }
     
 
@@ -141,7 +142,7 @@ public class Catálogo extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 36)); // NOI18N
         jLabel1.setText("Tres gatos colorados");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 230, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 20, 230, -1));
 
         Amanecer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/AmanecerRojo.jpg"))); // NOI18N
         Amanecer.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -495,70 +496,120 @@ public class Catálogo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void HailMaryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HailMaryMouseClicked
+    private void ElFantasmaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ElFantasmaMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_HailMaryMouseClicked
+    }//GEN-LAST:event_ElFantasmaMouseClicked
 
-    private void DuneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DuneMouseClicked
+    private void FrankensteinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FrankensteinMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_DuneMouseClicked
+    }//GEN-LAST:event_FrankensteinMouseClicked
 
-    private void EnderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EnderMouseClicked
+    private void CienAñosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CienAñosMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_EnderMouseClicked
+    }//GEN-LAST:event_CienAñosMouseClicked
 
-    private void AmanecerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AmanecerMouseClicked
+    private void RayuelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RayuelaMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_AmanecerMouseClicked
+    }//GEN-LAST:event_RayuelaMouseClicked
 
-    private void ElProblemaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ElProblemaMouseClicked
+    private void AnnaKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AnnaKMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_ElProblemaMouseClicked
+    }//GEN-LAST:event_AnnaKMouseClicked
 
-    private void FahrenheitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FahrenheitMouseClicked
+    private void ElRetratoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ElRetratoMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_FahrenheitMouseClicked
+    }//GEN-LAST:event_ElRetratoMouseClicked
 
-    private void LaGuerraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaGuerraMouseClicked
+    private void OrwellMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrwellMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_LaGuerraMouseClicked
+    }//GEN-LAST:event_OrwellMouseClicked
 
-    private void YoRobotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_YoRobotMouseClicked
+    private void ATLCDLQMEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ATLCDLQMEMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_YoRobotMouseClicked
+    }//GEN-LAST:event_ATLCDLQMEMouseClicked
 
-    private void ElImperioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ElImperioMouseClicked
+    private void MauriceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MauriceMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_ElImperioMouseClicked
+    }//GEN-LAST:event_MauriceMouseClicked
 
-    private void HPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HPMouseClicked
+    private void EvelynHugoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EvelynHugoMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_HPMouseClicked
+    }//GEN-LAST:event_EvelynHugoMouseClicked
 
-    private void ENDVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ENDVMouseClicked
+    private void ElGranGatsbyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ElGranGatsbyMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_ENDVMouseClicked
+    }//GEN-LAST:event_ElGranGatsbyMouseClicked
 
-    private void GOTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GOTMouseClicked
+    private void OyPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OyPMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_GOTMouseClicked
+    }//GEN-LAST:event_OyPMouseClicked
 
-    private void PJMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PJMouseClicked
+    private void NosotrosEnLaLunaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NosotrosEnLaLunaMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_PJMouseClicked
+    }//GEN-LAST:event_NosotrosEnLaLunaMouseClicked
+
+    private void YoAntesDeTiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_YoAntesDeTiMouseClicked
+        comprar = new Compras();
+        comprar.setVisible(true);
+    }//GEN-LAST:event_YoAntesDeTiMouseClicked
+
+    private void RebecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RebecaMouseClicked
+        comprar = new Compras();
+        comprar.setVisible(true);
+    }//GEN-LAST:event_RebecaMouseClicked
+
+    private void EstudioEnEscarlataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EstudioEnEscarlataMouseClicked
+        comprar = new Compras();
+        comprar.setVisible(true);
+    }//GEN-LAST:event_EstudioEnEscarlataMouseClicked
+
+    private void ECDVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ECDVMouseClicked
+        comprar = new Compras();
+        comprar.setVisible(true);
+    }//GEN-LAST:event_ECDVMouseClicked
+
+    private void LaPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaPacienteMouseClicked
+        comprar = new Compras();
+        comprar.setVisible(true);
+    }//GEN-LAST:event_LaPacienteMouseClicked
+
+    private void LSDVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LSDVMouseClicked
+        comprar = new Compras();
+        comprar.setVisible(true);
+    }//GEN-LAST:event_LSDVMouseClicked
+
+    private void JoelDickerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JoelDickerMouseClicked
+        comprar = new Compras();
+        comprar.setVisible(true);
+    }//GEN-LAST:event_JoelDickerMouseClicked
+
+    private void DiarioDeUnaPasiónMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DiarioDeUnaPasiónMouseClicked
+        comprar = new Compras();
+        comprar.setVisible(true);
+    }//GEN-LAST:event_DiarioDeUnaPasiónMouseClicked
+
+    private void PerdidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PerdidaMouseClicked
+        comprar = new Compras();
+        comprar.setVisible(true);
+    }//GEN-LAST:event_PerdidaMouseClicked
+
+    private void AgathaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgathaMouseClicked
+        comprar = new Compras();
+        comprar.setVisible(true);
+    }//GEN-LAST:event_AgathaMouseClicked
 
     private void LaRuedaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaRuedaMouseClicked
         comprar = new Compras();
@@ -570,130 +621,80 @@ public class Catálogo extends javax.swing.JFrame {
         comprar.setVisible(true);
     }//GEN-LAST:event_RobinHobbMouseClicked
 
-    private void TLORMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TLORMouseClicked
-        comprar = new Compras();
-        comprar.setVisible(true);
-    }//GEN-LAST:event_TLORMouseClicked
-
-    private void AgathaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgathaMouseClicked
-        comprar = new Compras();
-        comprar.setVisible(true);
-    }//GEN-LAST:event_AgathaMouseClicked
-
-    private void JoelDickerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JoelDickerMouseClicked
-        comprar = new Compras();
-        comprar.setVisible(true);
-    }//GEN-LAST:event_JoelDickerMouseClicked
-
-    private void LSDVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LSDVMouseClicked
-        comprar = new Compras();
-        comprar.setVisible(true);
-    }//GEN-LAST:event_LSDVMouseClicked
-
-    private void LaPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaPacienteMouseClicked
-        comprar = new Compras();
-        comprar.setVisible(true);
-    }//GEN-LAST:event_LaPacienteMouseClicked
-
-    private void ECDVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ECDVMouseClicked
-        comprar = new Compras();
-        comprar.setVisible(true);
-    }//GEN-LAST:event_ECDVMouseClicked
-
-    private void EstudioEnEscarlataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EstudioEnEscarlataMouseClicked
-        comprar = new Compras();
-        comprar.setVisible(true);
-    }//GEN-LAST:event_EstudioEnEscarlataMouseClicked
-
-    private void RebecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RebecaMouseClicked
-        comprar = new Compras();
-        comprar.setVisible(true);
-    }//GEN-LAST:event_RebecaMouseClicked
-
-    private void PerdidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PerdidaMouseClicked
-        comprar = new Compras();
-        comprar.setVisible(true);
-    }//GEN-LAST:event_PerdidaMouseClicked
-
-    private void OyPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OyPMouseClicked
-        comprar = new Compras();
-        comprar.setVisible(true);
-    }//GEN-LAST:event_OyPMouseClicked
-
-    private void YoAntesDeTiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_YoAntesDeTiMouseClicked
-        comprar = new Compras();
-        comprar.setVisible(true);
-    }//GEN-LAST:event_YoAntesDeTiMouseClicked
-
-    private void NosotrosEnLaLunaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NosotrosEnLaLunaMouseClicked
-        comprar = new Compras();
-        comprar.setVisible(true);
-    }//GEN-LAST:event_NosotrosEnLaLunaMouseClicked
-
     private void LaHipotesisMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaHipotesisMouseEntered
         comprar = new Compras();
         comprar.setVisible(true);
     }//GEN-LAST:event_LaHipotesisMouseEntered
 
-    private void ATLCDLQMEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ATLCDLQMEMouseClicked
+    private void PJMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PJMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_ATLCDLQMEMouseClicked
+    }//GEN-LAST:event_PJMouseClicked
 
-    private void EvelynHugoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EvelynHugoMouseClicked
+    private void GOTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GOTMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_EvelynHugoMouseClicked
+    }//GEN-LAST:event_GOTMouseClicked
 
-    private void MauriceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MauriceMouseClicked
+    private void ENDVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ENDVMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_MauriceMouseClicked
+    }//GEN-LAST:event_ENDVMouseClicked
 
-    private void DiarioDeUnaPasiónMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DiarioDeUnaPasiónMouseClicked
+    private void HPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HPMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_DiarioDeUnaPasiónMouseClicked
+    }//GEN-LAST:event_HPMouseClicked
 
-    private void OrwellMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrwellMouseClicked
+    private void ElImperioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ElImperioMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_OrwellMouseClicked
+    }//GEN-LAST:event_ElImperioMouseClicked
 
-    private void ElRetratoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ElRetratoMouseClicked
+    private void ElProblemaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ElProblemaMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_ElRetratoMouseClicked
+    }//GEN-LAST:event_ElProblemaMouseClicked
 
-    private void AnnaKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AnnaKMouseClicked
+    private void LaGuerraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaGuerraMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_AnnaKMouseClicked
+    }//GEN-LAST:event_LaGuerraMouseClicked
 
-    private void RayuelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RayuelaMouseClicked
+    private void FahrenheitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FahrenheitMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_RayuelaMouseClicked
+    }//GEN-LAST:event_FahrenheitMouseClicked
 
-    private void CienAñosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CienAñosMouseClicked
+    private void TLORMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TLORMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_CienAñosMouseClicked
+    }//GEN-LAST:event_TLORMouseClicked
 
-    private void FrankensteinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FrankensteinMouseClicked
+    private void HailMaryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HailMaryMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_FrankensteinMouseClicked
+    }//GEN-LAST:event_HailMaryMouseClicked
 
-    private void ElFantasmaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ElFantasmaMouseClicked
+    private void EnderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EnderMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_ElFantasmaMouseClicked
+    }//GEN-LAST:event_EnderMouseClicked
 
-    private void ElGranGatsbyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ElGranGatsbyMouseClicked
+    private void DuneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DuneMouseClicked
         comprar = new Compras();
         comprar.setVisible(true);
-    }//GEN-LAST:event_ElGranGatsbyMouseClicked
+    }//GEN-LAST:event_DuneMouseClicked
+
+    private void YoRobotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_YoRobotMouseClicked
+        comprar = new Compras();
+        comprar.setVisible(true);
+    }//GEN-LAST:event_YoRobotMouseClicked
+
+    private void AmanecerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AmanecerMouseClicked
+        comprar = new Compras();
+        comprar.setVisible(true);
+    }//GEN-LAST:event_AmanecerMouseClicked
 
     /**
      * @param args the command line arguments

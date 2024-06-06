@@ -10,16 +10,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author lilia
- */
 public class EncargarLibro extends javax.swing.JFrame {
     
 
-    /**
-     * Creates new form EncargarLibro
-     */
     public EncargarLibro() {
         initComponents();
         this.setResizable(false);
@@ -34,20 +27,39 @@ public class EncargarLibro extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        géneroLibro = new javax.swing.JTextField();
         títuloLibro = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         autorLibro = new javax.swing.JTextField();
         btnHecho = new javax.swing.JButton();
+        comboBoxGénero = new javax.swing.JComboBox<>();
+        btnAltas = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(204, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(255, 51, 51));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setFont(new java.awt.Font("Script MT Bold", 1, 12)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("X");
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 40, 30));
 
         jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -63,14 +75,13 @@ public class EncargarLibro extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nombre del libro:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 200, 40));
-        jPanel1.add(géneroLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 310, -1));
-        jPanel1.add(títuloLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 310, -1));
+        jPanel1.add(títuloLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 280, -1));
 
         jLabel4.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Autor/a del libro:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 200, 40));
-        jPanel1.add(autorLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 310, -1));
+        jPanel1.add(autorLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 280, -1));
 
         btnHecho.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         btnHecho.setText("Confirmar");
@@ -79,7 +90,20 @@ public class EncargarLibro extends javax.swing.JFrame {
                 btnHechoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnHecho, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 120, 40));
+        jPanel1.add(btnHecho, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 120, 40));
+
+        comboBoxGénero.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 14)); // NOI18N
+        comboBoxGénero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona:", "Fantasía", "Ciencia ficción", "Clásico", "Romance", "Misterio" }));
+        jPanel1.add(comboBoxGénero, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, -1, -1));
+
+        btnAltas.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        btnAltas.setText("Dar de alta encargos");
+        btnAltas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAltasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAltas, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, 190, 40));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/libreríaMadrid.jpg"))); // NOI18N
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 480));
@@ -104,7 +128,7 @@ public class EncargarLibro extends javax.swing.JFrame {
             Libreria lib = new Libreria();
             lib.setTítulo(títuloLibro.getText());
             lib.setAutor(autorLibro.getText());
-            lib.setGénero(géneroLibro.getText());
+            lib.setGénero(comboBoxGénero.getSelectedItem().toString());
                        
             try {
                 new Conexiones().RegistroNuevo(lib);
@@ -113,17 +137,27 @@ public class EncargarLibro extends javax.swing.JFrame {
             }
             limpiar();
             }
+            
+        }
     }//GEN-LAST:event_btnHechoActionPerformed
-   }
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        this.dispose();
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void btnAltasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAltasActionPerformed
+   
     void limpiar () {
         títuloLibro.setText("");
         autorLibro.setText("");
-        géneroLibro.setText("");
+        comboBoxGénero.setSelectedIndex(0);
     }
     
     boolean verificar() {
         if(títuloLibro.getText().isEmpty() || autorLibro.getText().isEmpty()
-                || géneroLibro.getText().isEmpty()) {
+                || comboBoxGénero.getSelectedIndex()<1) {
             JOptionPane.showMessageDialog(null,"Debes llenar todos los datos","Error",JOptionPane.WARNING_MESSAGE);
             return false;
         } else 
@@ -165,14 +199,17 @@ public class EncargarLibro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField autorLibro;
+    private javax.swing.JButton btnAltas;
     private javax.swing.JButton btnHecho;
-    private javax.swing.JTextField géneroLibro;
+    private javax.swing.JComboBox<String> comboBoxGénero;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField títuloLibro;
     // End of variables declaration//GEN-END:variables
 }

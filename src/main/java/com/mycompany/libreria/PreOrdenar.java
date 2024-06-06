@@ -56,9 +56,12 @@ public class PreOrdenar extends javax.swing.JFrame {
         jCalendar = new com.toedter.calendar.JCalendar();
         jcomboGénero = new javax.swing.JComboBox<>();
         btnRevisar = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -130,10 +133,25 @@ public class PreOrdenar extends javax.swing.JFrame {
                 btnRevisarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRevisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, 160, 40));
+        jPanel1.add(btnRevisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 160, 40));
+
+        jPanel2.setBackground(new java.awt.Color(255, 51, 51));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setFont(new java.awt.Font("Script MT Bold", 1, 12)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("X");
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 0, 40, 30));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/libreríaMadrid2.jpg"))); // NOI18N
-        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 520));
+        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 960, 530));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -185,6 +203,10 @@ public class PreOrdenar extends javax.swing.JFrame {
         Registros reg = new Registros();
         reg.setVisible(true);
     }//GEN-LAST:event_btnRevisarActionPerformed
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        this.dispose();
+    }//GEN-LAST:event_jLabel8MouseClicked
       void limpiar () {
         autorLibro.setText("");
         autorLibro.setText("");
@@ -247,7 +269,9 @@ public class PreOrdenar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JComboBox<String> jcomboGénero;
     private javax.swing.JTextField nombreCliente;
     private javax.swing.JTextField títuloLibro;

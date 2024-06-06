@@ -74,8 +74,11 @@ private Statement sentenciaSQL;
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaPreventas = new javax.swing.JTable();
         Actualizar = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -119,6 +122,21 @@ private Statement sentenciaSQL;
         });
         jPanel1.add(Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 140, -1));
 
+        jPanel2.setBackground(new java.awt.Color(255, 51, 51));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setFont(new java.awt.Font("Script MT Bold", 1, 12)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("X");
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 40, 30));
+
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         pack();
@@ -135,6 +153,10 @@ private Statement sentenciaSQL;
         Logger.getLogger(Registros.class.getName()).log(Level.SEVERE, null, ex);
     }
     }//GEN-LAST:event_ActualizarActionPerformed
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        this.dispose();
+    }//GEN-LAST:event_jLabel8MouseClicked
 
     /**
      * @param args the command line arguments
@@ -175,7 +197,9 @@ private Statement sentenciaSQL;
     private javax.swing.JButton Actualizar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable tablaPreventas;
     // End of variables declaration//GEN-END:variables
