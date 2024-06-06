@@ -1,9 +1,3 @@
-<%-- 
-    Document   : portfolio
-    Created on : 4 jun. 2024, 17:48:57
-    Author     : USER
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

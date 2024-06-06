@@ -20,29 +20,33 @@
             <div class="contenedor">
                 <div class="formulario">
                     <form action="#">
-                        <h2>Registro</h2> 
+                        <h2>Registro Tarjeta</h2> 
                         <div class = "input-contenedor">
                             <i class="fas fa-regular fa-envelope"></i>
                             <input type="email" required>
-                            <label for="#">Email</label>
+                            <label for="#">Número Tarjeta</label>
                         </div>
                         
                         <div class = "input-contenedor">
                             <i class="fa-solid fa-lock"></i>
                             <input type="password" required>
-                            <label for="#">Contraseña</label>
+                            <label for="#">Nombre del Titular</label>
                         </div>
                         <div class = "input-contenedor">
                             <i class="fa-solid fa-lock"></i>
                             <input type="password" required>
-                            <label for="#">Repite la Contraseña</label>
+                            <label for="#">Fecha Vencimiento</label>
                         </div>
-                        
-                        
+                        <div class = "input-contenedor">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" required>
+                            <label for="#">CVV</label>
+                        </div>
+                                                
                     </form>
                     
                     <div>
-                        <button href="index.jsp">Acceder</button>
+                        <button href="index.jsp">Nueva Tarjeta</button>
 
                     </div>
                 </div>
