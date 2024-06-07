@@ -11,6 +11,7 @@ public class Encargo{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int idEncargo;
+    private String NombreEstreno;
     private String fechaEncargo;
     private boolean estreno;
     @ManyToOne
@@ -20,8 +21,9 @@ public class Encargo{
     public Encargo() {
     }
 
-    public Encargo(int idEncargo, String fechaEncargo, boolean estreno, Cliente Fleet) {
+    public Encargo(int idEncargo,String NombreEstreno, String fechaEncargo, boolean estreno, Cliente Fleet) {
         this.idEncargo = idEncargo;
+        this.NombreEstreno = NombreEstreno;
         this.fechaEncargo = fechaEncargo;
         this.estreno = estreno;
         this.Fleet = Fleet;
@@ -35,6 +37,15 @@ public class Encargo{
     public void setIdEncargo(int idEncargo) {
         this.idEncargo = idEncargo;
     }
+
+    public String getNombreEstreno() {
+        return NombreEstreno;
+    }
+
+    public void setNombreEstreno(String NombreEstreno) {
+        this.NombreEstreno = NombreEstreno;
+    }
+    
 
     public String getFechaEncargo() {
         return fechaEncargo;

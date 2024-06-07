@@ -2,7 +2,7 @@
 <html>
 <%@include file="components/header.jsp"%>   
 <%@include file="components/nav.jsp"%>
-<h1>HOLAAAAAA PRUEBA</h1>
+<h1>Bienvenido</h1>
 <%@include file="components/grid.jsp"%>
 <%@include file="components/foot.jsp"%>
 </html>
